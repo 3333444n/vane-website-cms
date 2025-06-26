@@ -18,7 +18,13 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:4321', 'http://localhost:3000', 'https://your-astro-site.com'],
+      origin: [
+        'http://localhost:4321', 
+        'http://localhost:3000', 
+        'https://vane-preview.vercel.app',
+        /https:\/\/.*\.vercel\.app$/,  // Allow all Vercel preview URLs
+        /https:\/\/vane-.*\.vercel\.app$/,  // Allow all vane- prefixed Vercel URLs
+      ],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       keepHeaderOnError: true,
