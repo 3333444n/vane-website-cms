@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_text_sections",
+  "info": {
+    "singularName": "about-text-section",
+    "pluralName": "about-text-sections",
+    "displayName": "About Text Section",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images", "videos", "files", "audios"]
+    },
+    "order": {
+      "type": "integer",
+      "required": true
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": ["journey", "approach"],
+      "required": true
+    },
+    "reverseOrder": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    }
+  }
+} 

@@ -16,5 +16,12 @@ export default {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
+  async bootstrap({ strapi }) {
+    console.log('✅ Strapi CMS started successfully');
+    console.log('📋 Content types available:');
+    console.log('   - Service Cards, Homepage About, Homepage Quote');
+    console.log('   - Testimonials, About Text Sections, About Scroll Items');
+    console.log('   - Certifications, About Quote');
+    console.log('⚠️  Remember to set public permissions in Settings → Users & Permissions → Public');
+  },
 };
