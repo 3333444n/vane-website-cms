@@ -1,4 +1,8 @@
-# 🚀 Getting started with Strapi
+# Vanessa Ramirez CMS
+
+This is a Strapi CMS project that serves as the backend for the Vanessa Ramirez website. The frontend is built with Astro and can be found at [https://github.com/3333444n/vane-website](https://github.com/3333444n/vane-website).
+
+## 🚀 Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
 
@@ -34,10 +38,18 @@ yarn build
 
 ## ⚙️ Deployment
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+This project is configured for deployment on [Strapi Cloud](https://cloud.strapi.io). The database configuration automatically handles both local development (SQLite) and production (PostgreSQL on Strapi Cloud).
+
+### Environment Variables
+
+For local development, create a `.env` file in the root directory:
 
 ```
-yarn strapi deploy
+APP_KEYS=your-app-keys-here
+API_TOKEN_SALT=your-api-token-salt-here
+ADMIN_JWT_SECRET=your-admin-jwt-secret-here
+TRANSFER_TOKEN_SALT=your-transfer-token-salt-here
+JWT_SECRET=your-jwt-secret-here
 ```
 
 ## 📚 Learn more
