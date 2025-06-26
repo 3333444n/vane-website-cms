@@ -639,6 +639,34 @@ export interface ApiServiceCardServiceCard extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTestItemTestItem extends Struct.CollectionTypeSchema {
+  collectionName: 'test_items';
+  info: {
+    displayName: 'Test Item';
+    pluralName: 'test-items';
+    singularName: 'test-item';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::test-item.test-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
@@ -1190,6 +1218,7 @@ declare module '@strapi/strapi' {
       'api::homepage-about.homepage-about': ApiHomepageAboutHomepageAbout;
       'api::homepage-quote.homepage-quote': ApiHomepageQuoteHomepageQuote;
       'api::service-card.service-card': ApiServiceCardServiceCard;
+      'api::test-item.test-item': ApiTestItemTestItem;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

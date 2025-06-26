@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_items",
+  "info": {
+    "singularName": "test-item",
+    "pluralName": "test-items",
+    "displayName": "Test Item"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+} 
