@@ -4,7 +4,7 @@
   "info": {
     "singularName": "about-scroll-item",
     "pluralName": "about-scroll-items",
-    "displayName": "About Scroll Item",
+    "displayName": "🌷 Sobre Mí Cosas",
     "description": ""
   },
   "options": {
@@ -24,11 +24,16 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images", "videos", "files", "audios"]
+      "allowedTypes": [
+        "images",
+        "videos",
+        "files",
+        "audios"
+      ]
     },
     "order": {
       "type": "integer",
       "required": true
     }
   }
-} 
+}

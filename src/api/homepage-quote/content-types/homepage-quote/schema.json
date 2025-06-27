@@ -4,7 +4,7 @@
   "info": {
     "singularName": "homepage-quote",
     "pluralName": "homepage-quotes",
-    "displayName": "Homepage Quote",
+    "displayName": "🏠 Inicio Frase",
     "description": ""
   },
   "options": {
@@ -17,4 +17,4 @@
       "required": true
     }
   }
-} 
+}

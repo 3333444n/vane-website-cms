@@ -1,0 +1,123 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cursos",
+  "info": {
+    "singularName": "curso",
+    "pluralName": "cursos",
+    "displayName": "🎓 Cursos",
+    "description": "Cursos, talleres y certificaciones"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "certificacion",
+        "taller",
+        "gratuito"
+      ]
+    },
+    "event_date": {
+      "type": "date"
+    },
+    "type_label": {
+      "type": "string"
+    },
+    "slogan": {
+      "type": "text"
+    },
+    "short_description": {
+      "type": "richtext"
+    },
+    "main_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "order_homepage": {
+      "type": "integer"
+    },
+    "order_upcoming": {
+      "type": "integer"
+    },
+    "estado": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "disponible",
+        "no-disponible"
+      ]
+    },
+    "section1_text": {
+      "type": "richtext",
+      "required": true
+    },
+    "section1_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "section2_text": {
+      "type": "richtext",
+      "required": true
+    },
+    "section2_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "section2_quote": {
+      "type": "text"
+    },
+    "faq_intro_title": {
+      "type": "string"
+    },
+    "faq_intro_text": {
+      "type": "richtext"
+    },
+    "cta_text": {
+      "type": "string"
+    },
+    "cta_button_text": {
+      "type": "string"
+    },
+    "cta_button_link": {
+      "type": "string"
+    },
+    "cta_date": {
+      "type": "date"
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial",
+      "mappedBy": "curso"
+    },
+    "faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq",
+      "mappedBy": "curso"
+    }
+  }
+}

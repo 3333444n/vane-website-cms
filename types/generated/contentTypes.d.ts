@@ -414,7 +414,7 @@ export interface ApiAboutQuoteAboutQuote extends Struct.SingleTypeSchema {
   collectionName: 'about_quotes';
   info: {
     description: '';
-    displayName: 'About Quote';
+    displayName: '\uD83C\uDF37 Sobre M\u00ED Frase';
     pluralName: 'about-quotes';
     singularName: 'about-quote';
   };
@@ -444,7 +444,7 @@ export interface ApiAboutScrollItemAboutScrollItem
   collectionName: 'about_scroll_items';
   info: {
     description: '';
-    displayName: 'About Scroll Item';
+    displayName: '\uD83C\uDF37 Sobre M\u00ED Cosas';
     pluralName: 'about-scroll-items';
     singularName: 'about-scroll-item';
   };
@@ -478,7 +478,7 @@ export interface ApiAboutTextSectionAboutTextSection
   collectionName: 'about_text_sections';
   info: {
     description: '';
-    displayName: 'About Text Section';
+    displayName: '\uD83C\uDF37 Sobre M\u00ED Info';
     pluralName: 'about-text-sections';
     singularName: 'about-text-section';
   };
@@ -515,7 +515,7 @@ export interface ApiCertificationCertification
   collectionName: 'certifications';
   info: {
     description: '';
-    displayName: 'Certification';
+    displayName: '\uD83C\uDF37 Certificaciones';
     pluralName: 'certifications';
     singularName: 'certification';
   };
@@ -543,11 +543,95 @@ export interface ApiCertificationCertification
   };
 }
 
+export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
+  collectionName: 'cursos';
+  info: {
+    description: 'Cursos, talleres y certificaciones';
+    displayName: '\uD83C\uDF93 Cursos';
+    pluralName: 'cursos';
+    singularName: 'curso';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.Enumeration<
+      ['certificacion', 'taller', 'gratuito']
+    > &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    cta_button_link: Schema.Attribute.String;
+    cta_button_text: Schema.Attribute.String;
+    cta_date: Schema.Attribute.Date;
+    cta_text: Schema.Attribute.String;
+    estado: Schema.Attribute.Enumeration<['disponible', 'no-disponible']> &
+      Schema.Attribute.Required;
+    event_date: Schema.Attribute.Date;
+    faq_intro_text: Schema.Attribute.RichText;
+    faq_intro_title: Schema.Attribute.String;
+    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::curso.curso'> &
+      Schema.Attribute.Private;
+    main_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    order_homepage: Schema.Attribute.Integer;
+    order_upcoming: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    section1_image: Schema.Attribute.Media<'images'>;
+    section1_text: Schema.Attribute.RichText & Schema.Attribute.Required;
+    section2_image: Schema.Attribute.Media<'images'>;
+    section2_quote: Schema.Attribute.Text;
+    section2_text: Schema.Attribute.RichText & Schema.Attribute.Required;
+    short_description: Schema.Attribute.RichText;
+    slogan: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    type_label: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    description: 'Preguntas frecuentes';
+    displayName: '\uD83C\uDF93 FAQs';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    answer: Schema.Attribute.RichText & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    curso: Schema.Attribute.Relation<'manyToOne', 'api::curso.curso'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomepageAboutHomepageAbout extends Struct.SingleTypeSchema {
   collectionName: 'homepage_abouts';
   info: {
     description: '';
-    displayName: 'Homepage About';
+    displayName: '\uD83C\uDFE0 Inicio Info';
     pluralName: 'homepage-abouts';
     singularName: 'homepage-about';
   };
@@ -581,7 +665,7 @@ export interface ApiHomepageQuoteHomepageQuote extends Struct.SingleTypeSchema {
   collectionName: 'homepage_quotes';
   info: {
     description: '';
-    displayName: 'Homepage Quote';
+    displayName: '\uD83C\uDFE0 Inicio Frase';
     pluralName: 'homepage-quotes';
     singularName: 'homepage-quote';
   };
@@ -610,7 +694,7 @@ export interface ApiServiceCardServiceCard extends Struct.CollectionTypeSchema {
   collectionName: 'service_cards';
   info: {
     description: '';
-    displayName: 'Service Card';
+    displayName: '\uD83C\uDFE0 Carta de Categor\u00EDa';
     pluralName: 'service-cards';
     singularName: 'service-card';
   };
@@ -639,39 +723,11 @@ export interface ApiServiceCardServiceCard extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiTestItemTestItem extends Struct.CollectionTypeSchema {
-  collectionName: 'test_items';
-  info: {
-    displayName: 'Test Item';
-    pluralName: 'test-items';
-    singularName: 'test-item';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::test-item.test-item'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
     description: '';
-    displayName: 'Testimonial';
+    displayName: '\u2B50\uFE0F Testimonial';
     pluralName: 'testimonials';
     singularName: 'testimonial';
   };
@@ -684,6 +740,7 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    curso: Schema.Attribute.Relation<'manyToOne', 'api::curso.curso'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -695,6 +752,7 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     quote: Schema.Attribute.RichText & Schema.Attribute.Required;
+    target_page: Schema.Attribute.Enumeration<['inicio', 'sobre-mi', 'curso']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1215,10 +1273,11 @@ declare module '@strapi/strapi' {
       'api::about-scroll-item.about-scroll-item': ApiAboutScrollItemAboutScrollItem;
       'api::about-text-section.about-text-section': ApiAboutTextSectionAboutTextSection;
       'api::certification.certification': ApiCertificationCertification;
+      'api::curso.curso': ApiCursoCurso;
+      'api::faq.faq': ApiFaqFaq;
       'api::homepage-about.homepage-about': ApiHomepageAboutHomepageAbout;
       'api::homepage-quote.homepage-quote': ApiHomepageQuoteHomepageQuote;
       'api::service-card.service-card': ApiServiceCardServiceCard;
-      'api::test-item.test-item': ApiTestItemTestItem;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

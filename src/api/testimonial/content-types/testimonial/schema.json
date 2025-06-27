@@ -4,7 +4,7 @@
   "info": {
     "singularName": "testimonial",
     "pluralName": "testimonials",
-    "displayName": "Testimonial",
+    "displayName": "⭐️ Testimonial",
     "description": ""
   },
   "options": {
@@ -30,8 +30,27 @@
     },
     "page": {
       "type": "enumeration",
-      "enum": ["homepage", "about", "both"],
-      "required": true
+      "required": true,
+      "enum": [
+        "homepage",
+        "about",
+        "both"
+      ]
+    },
+    "target_page": {
+      "type": "enumeration",
+      "required": false,
+      "enum": [
+        "inicio",
+        "sobre-mi",
+        "curso"
+      ]
+    },
+    "curso": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::curso.curso",
+      "inversedBy": "testimonials"
     }
   }
-} 
+}
