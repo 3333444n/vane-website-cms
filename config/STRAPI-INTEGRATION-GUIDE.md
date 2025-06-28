@@ -247,6 +247,68 @@ const image = data.image?.data ? data.image.data : data.image;
 4. Graceful Component Defaults (last resort)
 ```
 
+### **5. Content-Type Specifics: Testimonials**
+
+**Problem**: Originally, a testimonial could only be assigned to a single page (`homepage`, `about`, or one `course`). This required duplicating content if a testimonial was relevant in multiple places.
+
+**Solution**: The `testimonial` content-type was restructured to allow flexible, multi-page assignments.
+
+- `page` and `target_page` fields were removed.
+- Added `show_on_homepage` (boolean) and `show_on_about_page` (boolean).
+- The relationship to `cursos` was changed to `manyToMany`.
+
+This allows an editor to use checkboxes to place a testimonial on the homepage, about page, and associate it with multiple courses simultaneously.
+
+#### **Updated `Testimonial` Interface Example**
+
+This is how the new `Testimonial` interface should look in the frontend code (`src/lib/strapi.ts`):
+
+```typescript
+export interface Testimonial {
+  id: number;
+  attributes: {
+    quote: string;
+    authorName: string;
+    authorTitle: string;
+    order: number;
+    show_on_homepage: boolean;
+    show_on_about_page: boolean;
+    cursos?: StrapiRelation<Course[]>; // Many-to-many relationship
+  };
+}
+```
+
+#### **API Query Example**
+
+To fetch testimonials and their related courses, you must populate the `cursos` relation:
+
+```bash
+/api/testimonials?populate=cursos
+```
+
+#### **Transformation Logic Example**
+
+A transformation function on the frontend can then process the data for the components:
+
+```typescript
+// src/lib/strapi-data.ts
+export function transformTestimonial(testimonial: any) {
+  if (!testimonial) return null;
+
+  const data = testimonial.attributes ? testimonial.attributes : testimonial;
+
+  return {
+    quote: data.quote,
+    author: `${data.authorName}, ${data.authorTitle}`,
+    // The following properties can be used to filter testimonials on the frontend
+    showOnHomepage: data.show_on_homepage,
+    showOnAboutPage: data.show_on_about_page,
+    // Related course slugs can be extracted for filtering
+    relatedCourses: data.cursos?.data?.map((c) => c.attributes.slug) || [],
+  };
+}
+```
+
 ---
 
 ## 🔄 **Data Transformation Strategy**

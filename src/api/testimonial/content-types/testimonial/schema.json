@@ -28,27 +28,19 @@
       "type": "integer",
       "required": true
     },
-    "page": {
-      "type": "enumeration",
-      "required": true,
-      "enum": [
-        "homepage",
-        "about",
-        "both"
-      ]
+    "show_on_homepage": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     },
-    "target_page": {
-      "type": "enumeration",
-      "required": false,
-      "enum": [
-        "inicio",
-        "sobre-mi",
-        "curso"
-      ]
+    "show_on_about_page": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     },
-    "curso": {
+    "cursos": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::curso.curso",
       "inversedBy": "testimonials"
     }

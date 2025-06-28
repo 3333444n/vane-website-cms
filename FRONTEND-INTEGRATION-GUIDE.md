@@ -8,7 +8,7 @@ Este documento detalla toda la estructura de datos y APIs disponibles para la in
 
 ## 📋 **Base URLs**
 
-- **Development:** `http://localhost:1337/api`
+- **Development:** `https://meaningful-fitness-6cded77ff5.strapiapp.com/api`
 - **Production:** `TBD`
 
 ---

@@ -543,6 +543,39 @@ export interface ApiCertificationCertification
   };
 }
 
+export interface ApiCourseFeatureCourseFeature
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'course_features';
+  info: {
+    description: 'Caracter\u00EDsticas que se incluyen en los cursos';
+    displayName: '\uD83C\uDF93 Caracter\u00EDsticas';
+    pluralName: 'course-features';
+    singularName: 'course-feature';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    courses: Schema.Attribute.Relation<'manyToMany', 'api::curso.curso'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::course-feature.course-feature'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
   collectionName: 'cursos';
   info: {
@@ -559,6 +592,10 @@ export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
       ['certificacion', 'taller', 'gratuito']
     > &
       Schema.Attribute.Required;
+    course_features: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::course-feature.course-feature'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -588,7 +625,7 @@ export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
     slogan: Schema.Attribute.Text;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     testimonials: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::testimonial.testimonial'
     >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -740,7 +777,7 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    curso: Schema.Attribute.Relation<'manyToOne', 'api::curso.curso'>;
+    cursos: Schema.Attribute.Relation<'manyToMany', 'api::curso.curso'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -748,11 +785,14 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     order: Schema.Attribute.Integer & Schema.Attribute.Required;
-    page: Schema.Attribute.Enumeration<['homepage', 'about', 'both']> &
-      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     quote: Schema.Attribute.RichText & Schema.Attribute.Required;
-    target_page: Schema.Attribute.Enumeration<['inicio', 'sobre-mi', 'curso']>;
+    show_on_about_page: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    show_on_homepage: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1273,6 +1313,7 @@ declare module '@strapi/strapi' {
       'api::about-scroll-item.about-scroll-item': ApiAboutScrollItemAboutScrollItem;
       'api::about-text-section.about-text-section': ApiAboutTextSectionAboutTextSection;
       'api::certification.certification': ApiCertificationCertification;
+      'api::course-feature.course-feature': ApiCourseFeatureCourseFeature;
       'api::curso.curso': ApiCursoCurso;
       'api::faq.faq': ApiFaqFaq;
       'api::homepage-about.homepage-about': ApiHomepageAboutHomepageAbout;

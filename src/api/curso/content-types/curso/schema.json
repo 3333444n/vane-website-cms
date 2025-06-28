@@ -109,15 +109,21 @@
     },
     "testimonials": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::testimonial.testimonial",
-      "mappedBy": "curso"
+      "mappedBy": "cursos"
     },
     "faqs": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::faq.faq",
       "mappedBy": "curso"
+    },
+    "course_features": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course-feature.course-feature",
+      "inversedBy": "courses"
     }
   }
 }
