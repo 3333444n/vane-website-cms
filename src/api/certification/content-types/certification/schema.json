@@ -4,7 +4,7 @@
   "info": {
     "singularName": "certification",
     "pluralName": "certifications",
-    "displayName": "Certification",
+    "displayName": "🌷 Certificaciones",
     "description": ""
   },
   "options": {
@@ -20,11 +20,16 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images", "videos", "files", "audios"]
+      "allowedTypes": [
+        "images",
+        "videos",
+        "files",
+        "audios"
+      ]
     },
     "order": {
       "type": "integer",
       "required": true
     }
   }
-} 
+}

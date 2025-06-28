@@ -4,7 +4,7 @@
   "info": {
     "singularName": "about-text-section",
     "pluralName": "about-text-sections",
-    "displayName": "About Text Section",
+    "displayName": "🌷 Sobre Mí Info",
     "description": ""
   },
   "options": {
@@ -24,7 +24,12 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images", "videos", "files", "audios"]
+      "allowedTypes": [
+        "images",
+        "videos",
+        "files",
+        "audios"
+      ]
     },
     "order": {
       "type": "integer",
@@ -32,13 +37,16 @@
     },
     "section": {
       "type": "enumeration",
-      "enum": ["journey", "approach"],
-      "required": true
+      "required": true,
+      "enum": [
+        "journey",
+        "approach"
+      ]
     },
     "reverseOrder": {
       "type": "boolean",
-      "default": false,
-      "required": false
+      "required": false,
+      "default": false
     }
   }
-} 
+}

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "testimonial",
     "pluralName": "testimonials",
-    "displayName": "Testimonial",
+    "displayName": "⭐️ Testimonial",
     "description": ""
   },
   "options": {
@@ -28,10 +28,21 @@
       "type": "integer",
       "required": true
     },
-    "page": {
-      "type": "enumeration",
-      "enum": ["homepage", "about", "both"],
+    "show_on_homepage": {
+      "type": "boolean",
+      "default": false,
       "required": true
+    },
+    "show_on_about_page": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "cursos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::curso.curso",
+      "inversedBy": "testimonials"
     }
   }
-} 
+}

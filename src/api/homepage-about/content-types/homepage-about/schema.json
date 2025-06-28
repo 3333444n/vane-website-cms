@@ -4,7 +4,7 @@
   "info": {
     "singularName": "homepage-about",
     "pluralName": "homepage-abouts",
-    "displayName": "Homepage About",
+    "displayName": "🏠 Inicio Info",
     "description": ""
   },
   "options": {
@@ -24,7 +24,12 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images", "videos", "files", "audios"]
+      "allowedTypes": [
+        "images",
+        "videos",
+        "files",
+        "audios"
+      ]
     },
     "buttonText": {
       "type": "string",
@@ -35,4 +40,4 @@
       "required": false
     }
   }
-} 
+}

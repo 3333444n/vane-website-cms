@@ -4,7 +4,7 @@
   "info": {
     "singularName": "about-quote",
     "pluralName": "about-quotes",
-    "displayName": "About Quote",
+    "displayName": "🌷 Sobre Mí Frase",
     "description": ""
   },
   "options": {
@@ -17,4 +17,4 @@
       "required": true
     }
   }
-} 
+}
