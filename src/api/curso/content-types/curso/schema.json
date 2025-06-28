@@ -115,9 +115,9 @@
     },
     "faqs": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::faq.faq",
-      "mappedBy": "curso"
+      "mappedBy": "cursos"
     },
     "course_features": {
       "type": "relation",

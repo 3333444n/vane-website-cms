@@ -20,9 +20,9 @@
       "type": "richtext",
       "required": true
     },
-    "curso": {
+    "cursos": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::curso.curso",
       "inversedBy": "faqs"
     }
