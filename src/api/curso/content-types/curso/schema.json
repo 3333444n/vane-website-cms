@@ -14,12 +14,18 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Titulo del Curso"
     },
     "slug": {
       "type": "uid",
       "targetField": "title",
-      "required": true
+      "required": true,
+      "options": {
+        "regex": "^[a-z0-9-]+$",
+        "alert": "El slug solo puede contener letras minúsculas, números y guiones."
+      },
+      "default": "en-minuscula-sin-espacios-ni-simbolos"
     },
     "category": {
       "type": "enumeration",
@@ -28,19 +34,24 @@
         "certificacion",
         "taller",
         "gratuito"
-      ]
+      ],
+      "default": "certificacion"
     },
     "event_date": {
-      "type": "date"
+      "type": "date",
+      "default": "2025-01-01"
     },
     "type_label": {
-      "type": "string"
+      "type": "string",
+      "default": "Certificacion"
     },
     "slogan": {
-      "type": "text"
+      "type": "text",
+      "default": "La frase del curso"
     },
     "short_description": {
-      "type": "richtext"
+      "type": "richtext",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
     },
     "main_image": {
       "type": "media",
@@ -62,11 +73,13 @@
       "enum": [
         "disponible",
         "no-disponible"
-      ]
+      ],
+      "default": "disponible"
     },
     "section1_text": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
     },
     "section1_image": {
       "type": "media",
@@ -77,7 +90,8 @@
     },
     "section2_text": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
     },
     "section2_image": {
       "type": "media",
@@ -87,25 +101,24 @@
       ]
     },
     "section2_quote": {
-      "type": "text"
-    },
-    "faq_intro_title": {
-      "type": "string"
+      "type": "text",
+      "default": "Abre tus puertas a la riqueza infinita del Universo"
     },
     "faq_intro_text": {
-      "type": "richtext"
+      "type": "richtext",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
     },
     "cta_text": {
-      "type": "string"
+      "type": "string",
+      "default": "¿Estas lista para cambiar tu vida?"
     },
     "cta_button_text": {
-      "type": "string"
+      "type": "string",
+      "default": "Inscribirme"
     },
     "cta_button_link": {
-      "type": "string"
-    },
-    "cta_date": {
-      "type": "date"
+      "type": "string",
+      "default": "academia.vanessaramirezcoach.com/"
     },
     "testimonials": {
       "type": "relation",

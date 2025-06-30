@@ -11,14 +11,16 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {
+    "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Acerca de mi"
     },
     "content": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     },
     "image": {
       "type": "media",
@@ -33,20 +35,13 @@
     },
     "order": {
       "type": "integer",
-      "required": true
-    },
-    "section": {
-      "type": "enumeration",
       "required": true,
-      "enum": [
-        "journey",
-        "approach"
-      ]
+      "default": 0
     },
     "reverseOrder": {
       "type": "boolean",
       "required": false,
-      "default": false
+      "default": true
     }
   }
 }

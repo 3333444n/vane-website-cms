@@ -14,7 +14,8 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Nombre de la certificacion"
     },
     "icon": {
       "type": "media",
@@ -29,7 +30,8 @@
     },
     "order": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "default": 0
     }
   }
 }

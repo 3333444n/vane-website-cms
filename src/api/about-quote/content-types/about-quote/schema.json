@@ -14,7 +14,8 @@
   "attributes": {
     "quote": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "default": "Agrega una frase aqui"
     }
   }
 }

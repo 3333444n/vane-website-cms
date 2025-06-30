@@ -14,7 +14,8 @@
   "attributes": {
     "quote": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "default": "Abre las puertas de tu alma a la riqueza infinita del Universo"
     }
   }
 }

@@ -14,11 +14,13 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Talleres"
     },
     "link": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "#"
     },
     "image": {
       "type": "media",
@@ -33,7 +35,8 @@
     },
     "order": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "default": 0
     }
   }
 }

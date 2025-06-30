@@ -14,28 +14,32 @@
   "attributes": {
     "quote": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "default": "Conoci a Vane por recomendacion de mi mejor amiga, desde que tome su primer curso mi vida ha cambiado para bien drasticamente, es la mejor coach que pude haber conocido"
     },
     "authorName": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Carolina Vazques"
     },
     "authorTitle": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Profesora de Yoga"
     },
     "order": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "default": 0
     },
     "show_on_homepage": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "required": true
     },
     "show_on_about_page": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "required": true
     },
     "cursos": {
