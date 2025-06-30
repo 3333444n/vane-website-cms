@@ -522,6 +522,38 @@ export interface ApiAboutTextSectionAboutTextSection
   };
 }
 
+export interface ApiCertificacionesPageCertificacionesPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'certificaciones_pages';
+  info: {
+    description: '';
+    displayName: '\uD83D\uDCC4 Pagina de Certificaciones';
+    pluralName: 'certificaciones-pages';
+    singularName: 'certificaciones-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.DefaultTo<"# Mis Certificaciones y Formaciones\n\n* Registros Ak\u00E1shicos M\u00E1ster Teacher\n* Facilitadora Access Consciousness\u00AE\n* Feng Shui para tu vida\n* Cantos sagrados\n* Maestra en el uso terap\u00E9utico del p\u00E9ndulo\n* Sanaci\u00F3n con rosas\n* Ho'oponopono Certification\n* Diplomado en Flores de Bach\n* Diplomado en el origen energ\u00E9tico de una enfermedad a trav\u00E9s de los chakras\n* Diplomado en Psicoterapia por m\u00E9todos naturales\n* Instructora de Yin Yoga\n* Facilitadora y gu\u00EDa en Yoga de la Risa\n* Facilitadora y gu\u00EDa en el camino de la sanaci\u00F3n ancestral\n* Maestra de ceremonias hol\u00EDsticas y gu\u00EDa de expansi\u00F3n espiritual\n* Diplomado en T\u00E9cnica Biomagn\u00E9tica\n* Terapeuta en sanaci\u00F3n energ\u00E9tica y m\u00E9todos alternativos\n* Coach de vida y espiritual\n* Ange\u00F3loga\n* Mediumship\n* ThetaHealing\u00AE Master Certification\n* Moon Mother Womb Blessing \u2013 Divinidad Femenina\n* Maestra de meditaci\u00F3n en sanaci\u00F3n cu\u00E1ntica, divinidad sonora y conexi\u00F3n intuitiva\n* Inner Power Method\u2122 Certification\n* Mindfulness Teacher\n* Reiki Arcang\u00E9lico Master Teacher\n* Magnified Healing\u00AE Teacher\n* Heal Your Life\u00AE Teacher Certification (filosof\u00EDa de Louise L. Hay)">;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::certificaciones-page.certificaciones-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCertificationCertification
   extends Struct.CollectionTypeSchema {
   collectionName: 'certifications';
@@ -1382,6 +1414,7 @@ declare module '@strapi/strapi' {
       'api::about-quote.about-quote': ApiAboutQuoteAboutQuote;
       'api::about-scroll-item.about-scroll-item': ApiAboutScrollItemAboutScrollItem;
       'api::about-text-section.about-text-section': ApiAboutTextSectionAboutTextSection;
+      'api::certificaciones-page.certificaciones-page': ApiCertificacionesPageCertificacionesPage;
       'api::certification.certification': ApiCertificationCertification;
       'api::course-feature.course-feature': ApiCourseFeatureCourseFeature;
       'api::curso.curso': ApiCursoCurso;

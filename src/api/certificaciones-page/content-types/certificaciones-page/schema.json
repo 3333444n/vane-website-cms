@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "certificaciones_pages",
+  "info": {
+    "singularName": "certificaciones-page",
+    "pluralName": "certificaciones-pages",
+    "displayName": "📄 Pagina de Certificaciones",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "default": "# Mis Certificaciones y Formaciones\n\n* Registros Akáshicos Máster Teacher\n* Facilitadora Access Consciousness®\n* Feng Shui para tu vida\n* Cantos sagrados\n* Maestra en el uso terapéutico del péndulo\n* Sanación con rosas\n* Ho'oponopono Certification\n* Diplomado en Flores de Bach\n* Diplomado en el origen energético de una enfermedad a través de los chakras\n* Diplomado en Psicoterapia por métodos naturales\n* Instructora de Yin Yoga\n* Facilitadora y guía en Yoga de la Risa\n* Facilitadora y guía en el camino de la sanación ancestral\n* Maestra de ceremonias holísticas y guía de expansión espiritual\n* Diplomado en Técnica Biomagnética\n* Terapeuta en sanación energética y métodos alternativos\n* Coach de vida y espiritual\n* Angeóloga\n* Mediumship\n* ThetaHealing® Master Certification\n* Moon Mother Womb Blessing – Divinidad Femenina\n* Maestra de meditación en sanación cuántica, divinidad sonora y conexión intuitiva\n* Inner Power Method™ Certification\n* Mindfulness Teacher\n* Reiki Arcangélico Master Teacher\n* Magnified Healing® Teacher\n* Heal Your Life® Teacher Certification (filosofía de Louise L. Hay)"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
