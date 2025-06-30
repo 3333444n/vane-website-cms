@@ -432,7 +432,9 @@ export interface ApiAboutQuoteAboutQuote extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    quote: Schema.Attribute.RichText & Schema.Attribute.Required;
+    quote: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Agrega una frase aqui'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -452,7 +454,9 @@ export interface ApiAboutScrollItemAboutScrollItem
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Descripcion o explicacion de una cosa sobre mi'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -464,9 +468,13 @@ export interface ApiAboutScrollItemAboutScrollItem
       'api::about-scroll-item.about-scroll-item'
     > &
       Schema.Attribute.Private;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Resumen de una cosa sobre mi'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -486,7 +494,9 @@ export interface ApiAboutTextSectionAboutTextSection
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -498,12 +508,14 @@ export interface ApiAboutTextSectionAboutTextSection
       'api::about-text-section.about-text-section'
     > &
       Schema.Attribute.Private;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
-    reverseOrder: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    section: Schema.Attribute.Enumeration<['journey', 'approach']> &
-      Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    reverseOrder: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Acerca de mi'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -534,9 +546,13 @@ export interface ApiCertificationCertification
       'api::certification.certification'
     > &
       Schema.Attribute.Private;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Nombre de la certificacion'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -556,11 +572,14 @@ export interface ApiCourseFeatureCourseFeature
     draftAndPublish: true;
   };
   attributes: {
-    courses: Schema.Attribute.Relation<'manyToMany', 'api::curso.curso'>;
+    courses: Schema.Attribute.Relation<'manyToMany', 'api::curso.curso'> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Descripcion de la cosa que incluye el curso'>;
     icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -569,7 +588,9 @@ export interface ApiCourseFeatureCourseFeature
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Algo que incluye el curso'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -591,7 +612,8 @@ export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
     category: Schema.Attribute.Enumeration<
       ['certificacion', 'taller', 'gratuito']
     > &
-      Schema.Attribute.Required;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'certificacion'>;
     course_features: Schema.Attribute.Relation<
       'manyToMany',
       'api::course-feature.course-feature'
@@ -599,16 +621,20 @@ export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cta_button_link: Schema.Attribute.String;
-    cta_button_text: Schema.Attribute.String;
-    cta_date: Schema.Attribute.Date;
-    cta_text: Schema.Attribute.String;
+    cta_button_link: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'academia.vanessaramirezcoach.com/'>;
+    cta_button_text: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Inscribirme'>;
+    cta_text: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'\u00BFEstas lista para cambiar tu vida?'>;
     estado: Schema.Attribute.Enumeration<['disponible', 'no-disponible']> &
-      Schema.Attribute.Required;
-    event_date: Schema.Attribute.Date;
-    faq_intro_text: Schema.Attribute.RichText;
-    faq_intro_title: Schema.Attribute.String;
-    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'disponible'>;
+    event_date: Schema.Attribute.Date &
+      Schema.Attribute.DefaultTo<'2025-01-01'>;
+    faq_intro_text: Schema.Attribute.RichText &
+      Schema.Attribute.DefaultTo<'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'>;
+    faqs: Schema.Attribute.Relation<'manyToMany', 'api::faq.faq'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::curso.curso'> &
       Schema.Attribute.Private;
@@ -617,19 +643,37 @@ export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
     order_upcoming: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     section1_image: Schema.Attribute.Media<'images'>;
-    section1_text: Schema.Attribute.RichText & Schema.Attribute.Required;
+    section1_text: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'>;
     section2_image: Schema.Attribute.Media<'images'>;
-    section2_quote: Schema.Attribute.Text;
-    section2_text: Schema.Attribute.RichText & Schema.Attribute.Required;
-    short_description: Schema.Attribute.RichText;
-    slogan: Schema.Attribute.Text;
-    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    section2_quote: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Abre tus puertas a la riqueza infinita del Universo'>;
+    section2_text: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'>;
+    short_description: Schema.Attribute.RichText &
+      Schema.Attribute.DefaultTo<'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'>;
+    slogan: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'La frase del curso'>;
+    slug: Schema.Attribute.UID<
+      'title',
+      {
+        alert: 'El slug solo puede contener letras min\u00FAsculas, n\u00FAmeros y guiones.';
+        regex: '^[a-z0-9-]+$';
+      }
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'en-minuscula-sin-espacios-ni-simbolos'>;
     testimonials: Schema.Attribute.Relation<
       'manyToMany',
       'api::testimonial.testimonial'
     >;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    type_label: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Titulo del Curso'>;
+    type_label: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Certificacion'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -648,16 +692,20 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    answer: Schema.Attribute.RichText & Schema.Attribute.Required;
+    answer: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    curso: Schema.Attribute.Relation<'manyToOne', 'api::curso.curso'>;
+    cursos: Schema.Attribute.Relation<'manyToMany', 'api::curso.curso'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    question: Schema.Attribute.String & Schema.Attribute.Required;
+    question: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'\u00BFComo puedo inscribirme a este curso?'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -676,9 +724,13 @@ export interface ApiHomepageAboutHomepageAbout extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    buttonLink: Schema.Attribute.String;
-    buttonText: Schema.Attribute.String;
-    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    buttonLink: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'https://vane-preview.vercel.app/acerca-de-mi/'>;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Conoce m\u00E1s sobre m\u00ED'>;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Namast\u00E9\n\nEs hermoso coincidir en esta vida contigo y juntos vibrar en armon\u00EDa y plenitud.\n\nInici\u00E9 este maravilloso camino espiritual hace 14 a\u00F1os en busca de una sanaci\u00F3n y reencuentro conmigo misma en donde tuve la oportunidad de conocer a grandes maestros de vida que me ense\u00F1aron a creer en m\u00ED y a confiar en la magia de los nuevos comienzos.\n\nMi alma me gu\u00EDo a reconocer mi luz a trav\u00E9s de mi sombra, a despertar mi intuici\u00F3n y mi magia interna, magia que hay en cada uno de nosotros para crear nuestra mejor versi\u00F3n.\n\nMe encanta mi misi\u00F3n de vida y a trav\u00E9s de ella inspirar a los dem\u00E1s a conectar con su verdadera esencia, a abrazar ese lado m\u00E1gico que nos vincula con el amor, la abundancia, el bienestar y los ciclos del Universo para sanar en armon\u00EDa.\n\nLe agradezco a los \u00E1ngeles por estar en mi vida, por iluminar mi camino y llevarme de la mano con amor y dulzura.\n\nCreo firmemente que el amor es la sanaci\u00F3n y la respuesta para todo.'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -691,7 +743,9 @@ export interface ApiHomepageAboutHomepageAbout extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Acerca de mi'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -720,7 +774,9 @@ export interface ApiHomepageQuoteHomepageQuote extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    quote: Schema.Attribute.RichText & Schema.Attribute.Required;
+    quote: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Abre las puertas de tu alma a la riqueza infinita del Universo'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -744,16 +800,22 @@ export interface ApiServiceCardServiceCard extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     image: Schema.Attribute.Media<'images' | 'videos' | 'files' | 'audios'> &
       Schema.Attribute.Required;
-    link: Schema.Attribute.String & Schema.Attribute.Required;
+    link: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'#'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::service-card.service-card'
     > &
       Schema.Attribute.Private;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Talleres'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -772,8 +834,12 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    authorName: Schema.Attribute.String & Schema.Attribute.Required;
-    authorTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    authorName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Carolina Vazques'>;
+    authorTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Profesora de Yoga'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -784,15 +850,19 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
       'api::testimonial.testimonial'
     > &
       Schema.Attribute.Private;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
-    quote: Schema.Attribute.RichText & Schema.Attribute.Required;
+    quote: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Conoci a Vane por recomendacion de mi mejor amiga, desde que tome su primer curso mi vida ha cambiado para bien drasticamente, es la mejor coach que pude haber conocido'>;
     show_on_about_page: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<false>;
+      Schema.Attribute.DefaultTo<true>;
     show_on_homepage: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<false>;
+      Schema.Attribute.DefaultTo<true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -22,17 +22,20 @@
     },
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Algo que incluye el curso"
     },
     "description": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "default": "Descripcion de la cosa que incluye el curso"
     },
     "courses": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::curso.curso",
-      "mappedBy": "course_features"
+      "mappedBy": "course_features",
+      "required": true
     }
   }
 }

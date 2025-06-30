@@ -14,11 +14,13 @@
   "attributes": {
     "question": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "¿Como puedo inscribirme a este curso?"
     },
     "answer": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     "cursos": {
       "type": "relation",

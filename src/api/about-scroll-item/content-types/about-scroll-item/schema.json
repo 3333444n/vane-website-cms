@@ -14,11 +14,13 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Resumen de una cosa sobre mi"
     },
     "content": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "default": "Descripcion o explicacion de una cosa sobre mi"
     },
     "image": {
       "type": "media",
@@ -33,7 +35,8 @@
     },
     "order": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "default": 0
     }
   }
 }

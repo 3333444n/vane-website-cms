@@ -14,11 +14,13 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Acerca de mi"
     },
     "content": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "default": "Namasté\n\nEs hermoso coincidir en esta vida contigo y juntos vibrar en armonía y plenitud.\n\nInicié este maravilloso camino espiritual hace 14 años en busca de una sanación y reencuentro conmigo misma en donde tuve la oportunidad de conocer a grandes maestros de vida que me enseñaron a creer en mí y a confiar en la magia de los nuevos comienzos.\n\nMi alma me guío a reconocer mi luz a través de mi sombra, a despertar mi intuición y mi magia interna, magia que hay en cada uno de nosotros para crear nuestra mejor versión.\n\nMe encanta mi misión de vida y a través de ella inspirar a los demás a conectar con su verdadera esencia, a abrazar ese lado mágico que nos vincula con el amor, la abundancia, el bienestar y los ciclos del Universo para sanar en armonía.\n\nLe agradezco a los ángeles por estar en mi vida, por iluminar mi camino y llevarme de la mano con amor y dulzura.\n\nCreo firmemente que el amor es la sanación y la respuesta para todo."
     },
     "image": {
       "type": "media",
@@ -33,11 +35,13 @@
     },
     "buttonText": {
       "type": "string",
-      "required": false
+      "required": false,
+      "default": "Conoce más sobre mí"
     },
     "buttonLink": {
       "type": "string",
-      "required": false
+      "required": false,
+      "default": "https://vane-preview.vercel.app/acerca-de-mi/"
     }
   }
 }
